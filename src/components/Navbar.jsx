@@ -28,7 +28,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   return (
     <>
       <nav
-        className={`bg-gray-700 sticky top-0 flex duration-300 justify-between items-center px-4 md:px-8 ${
+        className={`bg-[#1e4151] fixed w-full top-0 flex md:duration-300 justify-between items-center px-4 md:px-8 ${
           isShrink ? 'md:py-0' : 'md:py-2'
         }`}
       >
@@ -52,11 +52,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
         <div>
           <div className="hidden md:flex gap-6 uppercase font-bold text-white">
-            <span>Wallets</span>
-            <span>What is Dogecoin?</span>
-            <span>Get Started Now</span>
-            <span>Guide</span>
-            <span>Faq</span>
+            <span className="cursor-pointer">Wallets</span>
+            <span className="cursor-pointer">What is Dogecoin?</span>
+            <span className="cursor-pointer">Get Started Now</span>
+            <span className="cursor-pointer">Guide</span>
+            <span className="cursor-pointer">Faq</span>
           </div>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -69,12 +69,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       <>
         {isMenuOpen && (
           <>
-            <div className="bg-gray-700 md:hidden flex w-full fixed flex-col p-5 gap-2 font-bold text-lg uppercase text-white">
-              <span>Wallets</span>
-              <span>What is Dogecoin?</span>
-              <span>Get Started Now</span>
-              <span>Guide</span>
-              <span>Faq</span>
+            <div className="bg-[#1e4151] md:hidden flex w-full fixed mt-14 flex-col p-5 gap-2 font-bold text-lg uppercase text-white">
+              <span className="cursor-pointer">Wallets</span>
+              <span className="cursor-pointer">What is Dogecoin?</span>
+              <span className="cursor-pointer">Get Started Now</span>
+              <span className="cursor-pointer">Guide</span>
+              <span className="cursor-pointer">Faq</span>
             </div>
           </>
         )}

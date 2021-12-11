@@ -1,7 +1,14 @@
 import React from 'react'
+import Header from '../components/Header'
+import Wallet from '../components/Wallet'
 
 const Home = () => {
-  return <div>Home</div>
+  return (
+    <>
+      <Header />
+      <Wallet />
+    </>
+  )
 }
 
 export default Home
