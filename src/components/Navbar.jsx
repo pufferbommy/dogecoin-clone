@@ -53,7 +53,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </a>
         <div>
           <div className="hidden md:flex gap-6 uppercase font-bold text-white">
-            <a href="#wallet" className="cursor-pointer">
+            <a href="#wallets" className="cursor-pointer">
               Wallets
             </a>
             <span className="cursor-pointer">What is Dogecoin?</span>

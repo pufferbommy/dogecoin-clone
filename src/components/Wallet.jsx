@@ -65,7 +65,7 @@ const Wallet = () => {
   ]
   return (
     <>
-      <span id="wallet" />
+      <span id="wallets" />
       <div className="mb-32">
         <div className="mt-20 mb-10 flex flex-col items-center">
           <h1 className="uppercase text-3xl font-semibold">Choose Your Wallet</h1>
