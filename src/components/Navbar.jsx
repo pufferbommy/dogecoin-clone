@@ -23,16 +23,17 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     return () => {
       window.removeEventListener('scroll', logit)
     }
-  }, [scrollY])
+  })
 
   return (
     <>
+      <span id="top" />
       <nav
         className={`bg-[#1e4151] fixed w-full top-0 flex md:duration-300 justify-between items-center px-4 md:px-8 ${
           isShrink ? 'md:py-0' : 'md:py-2'
         }`}
       >
-        <div className="inline-block">
+        <a href="#top" className="inline-block">
           <div className="flex items-center gap-2 py-2 cursor-pointer">
             <img
               className="object-contain w-10"
@@ -49,10 +50,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               Dogecoin
             </span>
           </div>
-        </div>
+        </a>
         <div>
           <div className="hidden md:flex gap-6 uppercase font-bold text-white">
-            <span className="cursor-pointer">Wallets</span>
+            <a href="#wallet" className="cursor-pointer">
+              Wallets
+            </a>
             <span className="cursor-pointer">What is Dogecoin?</span>
             <span className="cursor-pointer">Get Started Now</span>
             <span className="cursor-pointer">Guide</span>
