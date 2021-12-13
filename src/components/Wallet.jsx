@@ -93,18 +93,19 @@ const Wallet = () => {
               />
             ))}
           </div>
-          <a
-            target={'_blank'}
-            href="https://play.google.com/store/apps/details?id=de.langerhans.wallet&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1"
-            className="flex flex-col items-center gap-4 mt-14"
-          >
+          <div className="flex flex-col items-center gap-4 mt-14">
             <h1>Androind Wallet</h1>
-            <img
-              className="w-40"
-              src="https://dogecoin.com/assets/img/google_play.png"
-              alt=""
-            />
-          </a>
+            <a
+              target={'_blank'}
+              href="https://play.google.com/store/apps/details?id=de.langerhans.wallet&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1"
+            >
+              <img
+                className="w-40"
+                src="https://dogecoin.com/assets/img/google_play.png"
+                alt=""
+              />
+            </a>
+          </div>
         </div>
       </div>
     </>

@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
+const Navbar = ({ isMenuOpen, setIsMenuOpen, isGuidePage }) => {
   const [scrollY, setScrollY] = useState(0)
   const [isShrink, setIsShrink] = useState(false)
+  const [currentSection, setCurrentSection] = useState({
+    section1: null,
+    section2: null,
+    section3: null,
+  })
 
   const logit = () => {
     setScrollY(window.scrollY)
@@ -12,10 +17,27 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   useEffect(() => {
     if (scrollY > 100) {
+      console.log(scrollY)
       setIsShrink(true)
     } else {
       setIsShrink(false)
     }
+
+    if (scrollY >= 552 && scrollY <= 1446) {
+      setCurrentSection({ section1: true, section2: false, section3: false })
+    } else if (scrollY >= 1447 && scrollY <= 2800) {
+      setCurrentSection({ section1: false, section2: true, section3: false })
+    } else if (scrollY >= 2801) {
+      setCurrentSection({ section1: false, section2: false, section3: true })
+    } else {
+      setCurrentSection({
+        ...currentSection,
+        section1: false,
+        section2: false,
+        section3: false,
+      })
+    }
+
     const watchScroll = () => {
       window.addEventListener('scroll', logit)
     }
@@ -23,7 +45,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     return () => {
       window.removeEventListener('scroll', logit)
     }
-  })
+  }, [window.scrollY])
 
   return (
     <>
@@ -33,7 +55,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           isShrink ? 'md:py-0' : 'md:py-2'
         }`}
       >
-        <a href="#top" className="inline-block">
+        <a href="/#top" className="inline-block">
           <div className="flex items-center gap-2 py-2 cursor-pointer">
             <img
               className="object-contain w-10"
@@ -52,14 +74,42 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           </div>
         </a>
         <div>
-          <div className="hidden md:flex gap-6 uppercase font-bold text-white">
-            <a href="#wallets" className="cursor-pointer">
+          <div className="hidden md:flex gap-2 md:items-center uppercase font-bold text-white">
+            <a
+              href="/#wallets"
+              className={`${
+                currentSection.section1 && 'bg-orange-50 rounded text-[#1e4151]'
+              } cursor-pointer p-2`}
+            >
               Wallets
             </a>
-            <span className="cursor-pointer">What is Dogecoin?</span>
-            <span className="cursor-pointer">Get Started Now</span>
-            <span className="cursor-pointer">Guide</span>
-            <span className="cursor-pointer">Faq</span>
+            <a
+              href="/#about"
+              className={`${
+                currentSection.section2 && 'bg-orange-50 rounded text-[#1e4151]'
+              } cursor-pointer p-2`}
+            >
+              What is Dogecoin?
+            </a>
+            <a
+              href="/#started"
+              className={`${
+                currentSection.section3 && 'bg-orange-50 rounded text-[#1e4151]'
+              } cursor-pointer p-2`}
+            >
+              Get Started Now
+            </a>
+            <Link
+              to="/guide"
+              className={`${
+                isGuidePage && 'bg-orange-50 rounded text-[#1e4151]'
+              } cursor-pointer p-2`}
+            >
+              Guide
+            </Link>
+            <Link to="/faq" className="cursor-pointer p-2">
+              Faq
+            </Link>
           </div>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -7,6 +7,7 @@ import Button from './Button'
 const About = () => {
   return (
     <>
+      <span id="about"></span>
       <div className="bg-amber-50 flex flex-col pb-20 items-center">
         <div className="mt-20 mb-10 flex flex-col items-center">
           <h1 className="uppercase text-3xl font-semibold">WHAT IS DOGECOIN?</h1>
