@@ -63,7 +63,7 @@ const Header = ({ guidePage }) => {
       )}
       {!guidePage && (
         <div className="flex gap-2">
-          <Button title="Get Started Now" destination="#start" />
+          <Button title="Get Started Now" destination="/#started" />
           <Button
             title="Source"
             destination="https://github.com/dogecoin/dogecoin"
