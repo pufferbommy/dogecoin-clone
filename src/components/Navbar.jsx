@@ -82,9 +82,9 @@ const Navbar = ({
         <div>
           {isFaqPage && (
             <>
-              <button className="uppercase text-white font-bold">
+              <Link to="/" className="uppercase text-white font-bold">
                 Back To Main Page
-              </button>
+              </Link>
             </>
           )}
           {!isFaqPage && (
