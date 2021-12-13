@@ -6,7 +6,7 @@ import { BsDiscord } from 'react-icons/bs'
 import { RiArrowDownSFill } from 'react-icons/ri'
 import LanguageMenu from './LanguageMenu'
 
-const FooterMenu = ({ isGuidePage }) => {
+const FooterMenu = ({ isOtherPage }) => {
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   return (
     <>
@@ -14,9 +14,9 @@ const FooterMenu = ({ isGuidePage }) => {
         onBlur={() => setIsLanguageMenuOpen(false)}
         className="flex justify-around bg-[#1e4151] p-20 -space-x-64"
       >
-        <a href={`${isGuidePage ? '/' : '#wallets'}`}>
+        <a href={`${isOtherPage ? '/' : '#wallets'}`}>
           <button className="text-white border text-lg rounded p-2 px-4 hover:text-[#1e4151] hover:bg-white">
-            {`${isGuidePage ? 'Back to Main Page' : 'Get Wallet'}`}
+            {`${isOtherPage ? 'Back to Main Page' : 'Get Wallet'}`}
           </button>
         </a>
         <div className="flex gap-4 items-center">

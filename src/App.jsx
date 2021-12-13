@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 // pages
 import Home from './pages/Home'
 import Guide from './pages/Guide'
+import Faq from './pages/Faq'
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -20,7 +21,11 @@ const App = () => {
             path="/"
             element={
               <>
-                <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+                <Navbar
+                  isHomePage
+                  isMenuOpen={isMenuOpen}
+                  setIsMenuOpen={setIsMenuOpen}
+                />
                 <Home />
                 <FooterMenu />
               </>
@@ -36,7 +41,21 @@ const App = () => {
                   setIsMenuOpen={setIsMenuOpen}
                 />
                 <Guide />
-                <FooterMenu isGuidePage />
+                <FooterMenu isOtherPage />
+              </>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <>
+                <Navbar
+                  isFaqPage
+                  isMenuOpen={isMenuOpen}
+                  setIsMenuOpen={setIsMenuOpen}
+                />
+                <Faq />
+                <FooterMenu isOtherPage />
               </>
             }
           />

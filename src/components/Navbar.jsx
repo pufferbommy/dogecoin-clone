@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ isMenuOpen, setIsMenuOpen, isGuidePage }) => {
+const Navbar = ({
+  isMenuOpen,
+  setIsMenuOpen,
+  isGuidePage,
+  isHomePage,
+  isFaqPage,
+}) => {
   const [scrollY, setScrollY] = useState(0)
   const [isShrink, setIsShrink] = useState(false)
   const [currentSection, setCurrentSection] = useState({
@@ -74,43 +80,58 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, isGuidePage }) => {
           </div>
         </a>
         <div>
-          <div className="hidden md:flex gap-2 md:items-center uppercase font-bold text-white">
-            <a
-              href="/#wallets"
-              className={`${
-                currentSection.section1 && 'bg-orange-50 rounded text-[#1e4151]'
-              } cursor-pointer p-2`}
-            >
-              Wallets
-            </a>
-            <a
-              href="/#about"
-              className={`${
-                currentSection.section2 && 'bg-orange-50 rounded text-[#1e4151]'
-              } cursor-pointer p-2`}
-            >
-              What is Dogecoin?
-            </a>
-            <a
-              href="/#started"
-              className={`${
-                currentSection.section3 && 'bg-orange-50 rounded text-[#1e4151]'
-              } cursor-pointer p-2`}
-            >
-              Get Started Now
-            </a>
-            <Link
-              to="/guide"
-              className={`${
-                isGuidePage && 'bg-orange-50 rounded text-[#1e4151]'
-              } cursor-pointer p-2`}
-            >
-              Guide
-            </Link>
-            <Link to="/faq" className="cursor-pointer p-2">
-              Faq
-            </Link>
-          </div>
+          {isFaqPage && (
+            <>
+              <button className="uppercase text-white font-bold">
+                Back To Main Page
+              </button>
+            </>
+          )}
+          {!isFaqPage && (
+            <div className="hidden md:flex gap-2 md:items-center uppercase font-bold text-white">
+              <a
+                href="/#wallets"
+                className={`${
+                  isHomePage &&
+                  currentSection.section1 &&
+                  'bg-orange-50 rounded text-[#1e4151]'
+                } cursor-pointer p-2`}
+              >
+                Wallets
+              </a>
+              <a
+                href="/#about"
+                className={`${
+                  isHomePage &&
+                  currentSection.section2 &&
+                  'bg-orange-50 rounded text-[#1e4151]'
+                } cursor-pointer p-2`}
+              >
+                What is Dogecoin?
+              </a>
+              <a
+                href="/#started"
+                className={`${
+                  isHomePage &&
+                  currentSection.section3 &&
+                  'bg-orange-50 rounded text-[#1e4151]'
+                } cursor-pointer p-2`}
+              >
+                Get Started Now
+              </a>
+              <Link
+                to="/guide"
+                className={`${
+                  isGuidePage && 'bg-orange-50 rounded text-[#1e4151]'
+                } cursor-pointer p-2`}
+              >
+                Guide
+              </Link>
+              <Link to="/faq" className="cursor-pointer p-2">
+                Faq
+              </Link>
+            </div>
+          )}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="flex md:hidden items-center text-sm font-medium px-4 py-2.5 rounded text-gray-700 bg-neutral-200 gap-1 uppercase"
