@@ -1,2 +1,3 @@
 # Demo
-![Screen Recording Apr 25 (2)](https://github.com/pufferbommy/dogecoin-clone/assets/87512687/46638058-9234-40f3-8d40-97fe4fbc9995)
+https://github.com/pufferbommy/dogecoin-clone/assets/87512687/d11dbedd-f5f8-449b-a957-3a239b453992
+
